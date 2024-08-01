@@ -8,7 +8,11 @@ it("throws error if a name is NOT passed into the constructor as the first param
 });
 
 // TEST 5
-
+it("constructor sets name", function() {
+const name = 'SAMPLE_NAME';
+const named = new Message(name);
+expect(named.name).toBe(name);
+})
 
 // TEST 6
 
