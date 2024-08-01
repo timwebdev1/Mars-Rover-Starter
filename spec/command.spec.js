@@ -13,11 +13,12 @@ describe("Command class", function() {
   })
 
 // TEST 3
-// it("constructor sets a value passed in as the 2nd argument", function() {
-//   const value = 'SOME_VALUE';
-//   const command = new Command(value);
-//   expect(command.value).toBe(value);
-// })
+it("constructor sets a value passed in as the 2nd argument", function() {
+  const commandType = 'COMMAND_TYPE';
+  const value = 'SOME_VALUE';
+  const command = new Command(commandType, value);
+  expect(command.value).toBe(value);
+})
 
 });
 
