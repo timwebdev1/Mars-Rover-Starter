@@ -13,10 +13,14 @@ it("constructor sets position and default values for mode and generatorWatts", f
   expect(rover.position).toBe(position);
   expect(rover.mode).toBe(mode);
   expect(rover.generatorWatts).toBe(generatorWatts);
-})
+});
   
   // TEST 8
-
+// it("response returned by receiveMessage contains the name of the message", function() {
+//   const message = new Message('Test message with two commands', commands);
+//   const results [new Command('MODE_CHANGE', 'LOW_POWER'),];
+//   expect(receiveMessage(message)).toBe(message);
+// } )
 
   // TEST 9
 

@@ -9,5 +9,5 @@ const Command = require('./command.js');
 
 // console.log(response);
 
-console.log(Command);
-console.log(Message);
+// console.log(Command);
+// console.log(Message);
