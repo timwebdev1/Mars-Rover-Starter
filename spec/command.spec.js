@@ -7,7 +7,7 @@ describe("Command class", function() {
 
   // TEST 2
   it("constructor sets command type", function() {
-    const commandType = 'SOME_COMMAND_TYPE';
+    const commandType = 'COMMAND_TYPE';
     const command = new Command(commandType);
     expect(command.commandType).toBe(commandType);
   })

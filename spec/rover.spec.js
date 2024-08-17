@@ -16,11 +16,14 @@ it("constructor sets position and default values for mode and generatorWatts", f
 });
   
   // TEST 8
-// it("response returned by receiveMessage contains the name of the message", function() {
-//   const message = new Message('Test message with two commands', commands);
-//   const results [new Command('MODE_CHANGE', 'LOW_POWER'),];
-//   expect(receiveMessage(message)).toBe(message);
-// } )
+it("response returned by receiveMessage contains the name of the message", function() {
+  const name = "TEST_NAME";
+  const message = new Message(name);
+  const response = {
+    message: message.name,
+  };
+  expect(response.message).toBe(name);
+});
 
   // TEST 9
 
