@@ -12,7 +12,7 @@ class Rover {
     const results = [];
     const response = {
       message: Message.name,
-      results: results(Command)
+      results: results[Command]
     };
     return response;
   }
