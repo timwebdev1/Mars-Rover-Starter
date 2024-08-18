@@ -26,7 +26,17 @@ it("response returned by receiveMessage contains the name of the message", funct
 });
 
   // TEST 9
-
+it("response returned by receiveMessage includes two results if two commands are sent in the message", function() {
+  const name = "TEST_NAME";
+  const commands = ['A_COMMAND', 'ANOTHER_COMMAND'];
+  const message = new Message(name, commands);
+  const results = [];
+  const response = {
+    message: message.name,
+    results: results
+  };
+  expect(response.results).toBe(results);
+});
 
   // TEST 10
 

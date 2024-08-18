@@ -1,3 +1,4 @@
+const Command = require("./command");
 const Message = require("./message");
 
 class Rover {
@@ -8,11 +9,12 @@ class Rover {
   }
 
   receiveMessage(message) {
-   const response = {
+    const results = [];
+    const response = {
       message: Message.name,
-   };
-  return response;
-
+      results: results(Command)
+    };
+    return response;
   }
 }
 
