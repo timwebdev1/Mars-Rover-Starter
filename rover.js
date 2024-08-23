@@ -11,10 +11,13 @@ class Rover {
   receiveMessage(message) {
     const results = [];
     const response = {
-      message: Message.name,
-      results: results[Command]
+      message: message.name,
+      results: results
     };
 
+    if (Command === "STATUS_CHECK") {
+      return response;
+    }; //i need to return the status of the rover here, no changes
  
       
     return response;
