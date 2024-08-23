@@ -15,10 +15,7 @@ class Rover {
       results: results
     };
 
-    if (Command === "STATUS_CHECK") {
-      return response;
-    }; //i need to return the status of the rover here, no changes
- 
+  
       
     return response;
   }

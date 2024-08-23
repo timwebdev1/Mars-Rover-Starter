@@ -9,9 +9,9 @@ describe("Rover class", function () {
     const mode = "NORMAL";
     const generatorWatts = 110;
     const rover = new Rover(position, mode, generatorWatts);
-    expect(rover.position).toBe(position);
-    expect(rover.mode).toBe(mode);
-    expect(rover.generatorWatts).toBe(generatorWatts);
+    expect(rover.position).toBe(190);
+    expect(rover.mode).toBe('NORMAL');
+    expect(rover.generatorWatts).toBe(110);
   });
 
   // TEST 8
@@ -21,7 +21,7 @@ describe("Rover class", function () {
     const response = {
       message: message.name,
     };
-    expect(response.message).toBe(name);
+    expect(response.message).toBe("TEST_NAME");
   });
 
   // TEST 9
@@ -51,9 +51,9 @@ describe("Rover class", function () {
 
     };
 
-    expect(roverStatus.position).toBe(position);
-    expect(roverStatus.mode).toBe(mode);
-    expect(roverStatus.generatorWatts).toBe(generatorWatts);
+    expect(roverStatus.position).toBe(190);
+    expect(roverStatus.mode).toBe("NORMAL");
+    expect(roverStatus.generatorWatts).toBe(110);
   });
 
 
