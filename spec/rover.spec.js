@@ -6,9 +6,7 @@ describe("Rover class", function () {
   // TEST 7
   it("constructor sets position and default values for mode and generatorWatts", function () {
     const position = 190;
-    const mode = "NORMAL";
-    const generatorWatts = 110;
-    const rover = new Rover(position, mode, generatorWatts);
+    const rover = new Rover(position);
     expect(rover.position).toBe(190);
     expect(rover.mode).toBe("NORMAL");
     expect(rover.generatorWatts).toBe(110);
@@ -18,9 +16,9 @@ describe("Rover class", function () {
   it("response returned by receiveMessage contains the name of the message", function () {
     const name = "TEST_NAME";
     const message = new Message(name);
-    const response = {
-      message: message.name,
-    };
+    const rover = new Rover(12345);
+    const response = rover.receiveMessage(message);
+
     expect(response.message).toBe("TEST_NAME");
   });
 
@@ -32,31 +30,23 @@ describe("Rover class", function () {
       new Command("SECOND_COMMAND", "MOVE_FORWARD"),
     ];
     const message = new Message(name, commands);
-    const results = [];
-    const response = {
-      message: message.name,
-      results: results,
-    };
-    expect(response.results).toBe(results);
+    const rover = new Rover(12345);
+    const response = rover.receiveMessage(message);
+
+    expect(response.results.length).toBe(2);
   });
 
   // TEST 10
   it("responds correctly to the status check command", function () {
-    const position = 190;
-    const rover = new Rover(position);
+    const rover = new Rover(12345);
     const name = "Status_Check test message";
     const commands = [new Command("STATUS_CHECK")];
     const message = new Message(name, commands);
     const response = rover.receiveMessage(message);
-    const roverStatus = {
-      position: response.results[0].position,
-      mode: response.results[0].mode,
-      generatorWatts: response.results[0].generatorWatts,
-    };
 
-    expect(roverStatus.position).toBe(190);
-    expect(roverStatus.mode).toBe("NORMAL");
-    expect(roverStatus.generatorWatts).toBe(110);
+    expect(response.results[0].roverStatus.position).toBe(12345);
+    expect(response.results[0].roverStatus.mode).toBe("NORMAL");
+    expect(response.results[0].roverStatus.generatorWatts).toBe(110);
   });
 
   // TEST 11
