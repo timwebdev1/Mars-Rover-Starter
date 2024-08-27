@@ -8,11 +8,8 @@ const Command = require('./command.js');
 // let response = rover.receiveMessage(message);
 
     const rover = new Rover(100);
-    const name = "Command to move in low power mode.";
-    const commands = [
-      new Command("MODE_CHANGE", "LOW_POWER"),
-      new Command("MOVE", 123),
-    ];
+    const name = "Move command test";
+    const commands = [new Command("MOVE", 123), [new Command("STATUS_CHECK")]];
     const message = new Message(name, commands);
     const response = rover.receiveMessage(message);
 
@@ -23,3 +20,4 @@ console.log(response);
 console.log("------------------------");
 console.log(response.results);
 console.log("------------------------");
+console.log(response.results[0].roverStatus);

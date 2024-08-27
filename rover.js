@@ -25,12 +25,21 @@ class Rover {
         } else if (command.commandType === "MODE_CHANGE") {
           this.mode = command.value;
           results.push({ completed: true });
-
         } else if (command.commandType === "MOVE") {
           if (this.mode === "LOW_POWER") {
-              results.push({ completed: false });
-            } else {}
-        }
+            results.push({ completed: false });
+          } else if (this.mode === "NORMAL") {
+            results.push({
+              completed: true, 
+              roverStatus: {
+                position: this.position,
+                mode: this.mode,
+                generatorWatts: this.generatorWatts
+              }
+            });
+            
+          };
+        };
       }
     }
 
