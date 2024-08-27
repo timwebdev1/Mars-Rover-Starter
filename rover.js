@@ -23,8 +23,12 @@ class Rover {
                generatorWatts: this.generatorWatts
             }
           });
-        } else {
-          results.push(command);
+        } else if (command.commandType === "MODE_CHANGE") {
+          // results.push(command);
+          this.mode = command.value;
+          results.push({ completed: true });
+
+
         }
       };
     };

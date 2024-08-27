@@ -50,6 +50,16 @@ describe("Rover class", function () {
   });
 
   // TEST 11
+  it("responds correctly to the mode change command", function () {
+    const rover = new Rover(12345);
+    const name = "Mode Change command check";
+    const commands = [new Command("MODE_CHANGE", "LOW_POWER")];
+    const message = new Message(name, commands);
+    const response = rover.receiveMessage(message);
+
+    expect(response.results[0].completed).toBe(true);
+    expect(rover.mode).toBe("LOW_POWER");
+  });
 
   // TEST 12
 
