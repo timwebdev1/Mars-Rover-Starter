@@ -7,16 +7,17 @@ const Command = require('./command.js');
 // let rover = new Rover(98382);    // Passes 98382 as the rover's position.
 // let response = rover.receiveMessage(message);
 
-    const name = "TEST_NAME";
+    const rover = new Rover(100);
+    const name = "Command to move in low power mode.";
     const commands = [
-      new Command("FIRST_COMMAND"),
-      new Command("SECOND_COMMAND", "MOVE_FORWARD"),
+      new Command("MODE_CHANGE", "LOW_POWER"),
+      new Command("MOVE", 123),
     ];
     const message = new Message(name, commands);
-    const rover = new Rover(12345);
     const response = rover.receiveMessage(message);
-    // The commands are not being pushed into array
 
+
+console.log(message.commands);
 
 console.log(response);
 console.log("------------------------");

@@ -23,9 +23,13 @@ class Rover {
             },
           });
         } else if (command.commandType === "MODE_CHANGE") {
-          // results.push(command);
           this.mode = command.value;
           results.push({ completed: true });
+
+        } else if (command.commandType === "MOVE") {
+          if (this.mode === "LOW_POWER") {
+              results.push({ completed: false });
+            } else {}
         }
       }
     }
