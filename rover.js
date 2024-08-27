@@ -6,10 +6,9 @@ class Rover {
     this.position = position;
     this.mode = mode;
     this.generatorWatts = generatorWatts;
-  };
+  }
 
   receiveMessage(message) {
-
     const results = [];
 
     if (message.commands) {
@@ -20,29 +19,24 @@ class Rover {
             roverStatus: {
               position: this.position,
               mode: this.mode,
-               generatorWatts: this.generatorWatts
-            }
+              generatorWatts: this.generatorWatts,
+            },
           });
         } else if (command.commandType === "MODE_CHANGE") {
           // results.push(command);
           this.mode = command.value;
           results.push({ completed: true });
-
-
         }
-      };
-    };
+      }
+    }
 
     const response = {
       message: message.name,
-      results: results
+      results: results,
     };
 
-    
-      
     return response;
   }
-
 }
 
 module.exports = Rover;

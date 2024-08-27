@@ -26,12 +26,13 @@ describe("Rover class", function () {
   it("response returned by receiveMessage includes two results if two commands are sent in the message", function () {
     const name = "TEST_NAME";
     const commands = [
-      new Command("FIRST_COMMAND"),
-      new Command("SECOND_COMMAND", "MOVE_FORWARD"),
+      new Command("STATUS_CHECK"),
+      new Command("MODE_CHANGE", "LOW_POWER"),
     ];
     const message = new Message(name, commands);
     const rover = new Rover(12345);
     const response = rover.receiveMessage(message);
+    // The commands are not being pushed into array
 
     expect(response.results.length).toBe(2);
   });
@@ -62,6 +63,16 @@ describe("Rover class", function () {
   });
 
   // TEST 12
+  it("responds with a false completed value when attempting to move in LOW_POWER mode", function () {
+    const rover = new Rover(12345);
+    const name = "Command to move in low power mode.";
+    const commands = [new Command("MOVE")];
+    const message = new Message(name, commands);
+    const response = rover.receiveMessage(message);
+
+    expect(response.results[0].completed).toBe(false);
+    expect(rover.results[0].roverStatus.position).toBe(12345);
+  });
 
   // TEST 13
 });
