@@ -29,6 +29,7 @@ class Rover {
           if (this.mode === "LOW_POWER") {
             results.push({ completed: false });
           } else if (this.mode === "NORMAL") {
+            this.position = command.value;
             results.push({
               completed: true, 
               roverStatus: {

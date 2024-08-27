@@ -84,6 +84,6 @@ describe("Rover class", function () {
     const message = new Message(name, commands);
     const response = rover.receiveMessage(message);
 
-    expect(response.results[0].roverStatus.position).toBe(100);
+    expect(response.results[0].roverStatus.position).toBe(123);
   });
 });
